@@ -10,9 +10,14 @@ export interface Pokemon {
   types:string[];
   weight:number;
   height:number;
-  abilities:string[]
+  abilities:string[];
+  stats : Stat[];
 }
 
+export class Stat{
+  public base_stat:number=0;
+  public name:string="";
+}
 @Component({
   selector: 'app-pokemon-detalles',
   templateUrl: './pokemon-detalles.component.html',
@@ -49,7 +54,8 @@ export class PokemonDetallesComponent implements OnInit {
           types: this.getArrayTypes(res.types),
           weight: res.weight,
           height : res.height,
-          abilities:this.getAbilities(res.abilities)
+          abilities:this.getAbilities(res.abilities),
+          stats:this.getStats(res.stats)
         }
         console.log(res);
         console.log(this.pokemon);
@@ -81,6 +87,19 @@ export class PokemonDetallesComponent implements OnInit {
       typeArray.push(element.ability.name);
     });
     return typeArray;
+  }
+
+  getStats(arrStats:any){
+    let statsArr : Stat[] = [];
+    let stat : Stat;
+    arrStats.forEach((element: any) => {
+      console.log(element.base_stat);
+      stat=new Stat();
+      stat.base_stat=element.base_stat;
+      stat.name=element.stat.name;
+      statsArr.push(stat);
+    });
+    return statsArr;
   }
 
 }
