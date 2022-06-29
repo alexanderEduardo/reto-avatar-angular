@@ -1,0 +1,26 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-s"></div> -->
+      <img mat-card-avatar mat-card-sm-image class="example-header-img" src="{{pokemon?.image}}" width="100%">
+      
+      <mat-card-title>Nombre: {{pokemon?.name}}</mat-card-title>
+      <mat-card-subtitle>ID: {{pokemon?.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{pokemon?.image}}" alt="{{pokemonEntity.name}}">
+    <mat-card-content>
+      <p>
+      </p>
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip  class="coral-color">Peso: {{pokemon?.weight}}</mat-chip>
+        <mat-chip color="warn" selected>Altura: {{pokemon?.height}}</mat-chip>
+        <mat-chip *ngFor="let t of pokemon?.types; index as i; first as isFirst" color="primary" selected>
+          Tipo: {{t}}
+        </mat-chip>
+        <mat-chip *ngFor="let pokAbility of pokemon?.abilities; index as i" color="accent" selected>
+         Habilidad {{i+1}} : {{pokAbility}}
+        </mat-chip>
+      </mat-chip-list>      
+    </mat-card-content>
+
+  </mat-card>
+  

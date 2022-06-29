@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseURL : 'https://pokeapi.co/api/v2',
+  ApiSpringURL : 'http://localhost:8090/avatar-reto'
 };
 
 /*
