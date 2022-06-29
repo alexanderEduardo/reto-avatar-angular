@@ -20,7 +20,7 @@
          Habilidad {{i+1}} : {{pokAbility}}
         </mat-chip>
         <mat-chip *ngFor="let pokStat of pokemon?.stats; index as i" class="livegreen-color">
-          {{pokStat.base_stat}} {{pokStat.name}}
+          {{pokStat.base_stat}} de {{pokStat.name}}
         </mat-chip>
       </mat-chip-list>      
     </mat-card-content>

@@ -96,7 +96,7 @@ export class PokemonDetallesComponent implements OnInit {
       console.log(element.base_stat);
       stat=new Stat();
       stat.base_stat=element.base_stat;
-      stat.name=element.stat.name;
+      stat.name=element.stat.name.toUpperCase();
       statsArr.push(stat);
     });
     return statsArr;
